@@ -1,0 +1,117 @@
+
+label {
+    display: block;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+
+    font-size: var(--label-font-size);
+    line-height: var(--label-line-height);
+    color: var(--label-color);
+
+    border: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+label[for] {
+    /* Clickable stuff gets a pointer cursor... */
+    cursor: pointer;
+}
+
+label > [type="checkbox"],
+label > [type="radio"] {
+    /* checkboxes nested inside labels */
+    margin-right: 0.5rem;
+    line-height: inherit;
+}
+
+label > .info-thumb {
+    position: absolute;
+    top: 50%;
+    margin-top: -0.625rem;
+    right: 0;
+}
+
+* + label {
+    margin-top: var(--label-margin);
+}
+
+* + fieldset {
+    margin-top: var(--fieldset-margin);
+}
+
+fieldset + input {
+    margin-top: var(--fieldset-input-margin);
+}
+
+.hidden + label {
+    margin-top: 0;
+}
+
+.error-label,
+.help-label {
+    display: block;
+}
+
+.error-label {
+    color: var(--error);
+}
+
+* + .error-label {
+    margin-top: 0.375em;
+}
+
+* + .help-label {
+    margin-top: 0.375em;
+}
+
+.x-1 + .error-label,  .x-1 + .help-label  { grid-column-start: 1; }
+.x-2 + .error-label,  .x-2 + .help-label  { grid-column-start: 2; }
+.x-3 + .error-label,  .x-3 + .help-label  { grid-column-start: 3; }
+.x-4 + .error-label,  .x-4 + .help-label  { grid-column-start: 4; }
+.x-5 + .error-label,  .x-5 + .help-label  { grid-column-start: 5; }
+.x-6 + .error-label,  .x-6 + .help-label  { grid-column-start: 6; }
+.x-7 + .error-label,  .x-7 + .help-label  { grid-column-start: 7; }
+.x-8 + .error-label,  .x-8 + .help-label  { grid-column-start: 8; }
+.x-9 + .error-label,  .x-9 + .help-label  { grid-column-start: 9; }
+.x-10 + .error-label, .x-10 + .help-label { grid-column-start: 10; }
+.x-11 + .error-label, .x-11 + .help-label { grid-column-start: 11; }
+.x-12 + .error-label, .x-12 + .help-label { grid-column-start: 12; }
+
+.1x + .error-label,  .1x + .help-label  { grid-column-end: span 1; }
+.2x + .error-label,  .2x + .help-label  { grid-column-end: span 2; }
+.3x + .error-label,  .3x + .help-label  { grid-column-end: span 3; }
+.4x + .error-label,  .4x + .help-label  { grid-column-end: span 4; }
+.5x + .error-label,  .5x + .help-label  { grid-column-end: span 5; }
+.6x + .error-label,  .6x + .help-label  { grid-column-end: span 6; }
+.7x + .error-label,  .7x + .help-label  { grid-column-end: span 7; }
+.8x + .error-label,  .8x + .help-label  { grid-column-end: span 8; }
+.9x + .error-label,  .9x + .help-label  { grid-column-end: span 9; }
+.10x + .error-label, .10x + .help-label { grid-column-end: span 10; }
+.11x + .error-label, .11x + .help-label { grid-column-end: span 11; }
+.12x + .error-label, .12x + .help-label { grid-column-end: span 12; }
+
+.y-1  + .error-label, .y-1  + .help-label { grid-row-start: 1; }
+.y-2  + .error-label, .y-2  + .help-label { grid-row-start: 2; }
+.y-3  + .error-label, .y-3  + .help-label { grid-row-start: 3; }
+.y-4  + .error-label, .y-4  + .help-label { grid-row-start: 4; }
+.y-5  + .error-label, .y-5  + .help-label { grid-row-start: 5; }
+.y-6  + .error-label, .y-6  + .help-label { grid-row-start: 6; }
+.y-7  + .error-label, .y-7  + .help-label { grid-row-start: 7; }
+.y-8  + .error-label, .y-8  + .help-label { grid-row-start: 8; }
+.y-9  + .error-label, .y-9  + .help-label { grid-row-start: 9; }
+.y-10 + .error-label, .y-10 + .help-label { grid-row-start: 10; }
+.y-11 + .error-label, .y-11 + .help-label { grid-row-start: 11; }
+.y-12 + .error-label, .y-12 + .help-label { grid-row-start: 12; }
+.y-13 + .error-label, .y-13 + .help-label { grid-row-start: 13; }
+.y-14 + .error-label, .y-14 + .help-label { grid-row-start: 14; }
+.y-15 + .error-label, .y-15 + .help-label { grid-row-start: 15; }
+.y-16 + .error-label, .y-16 + .help-label { grid-row-start: 16; }
+.y-17 + .error-label, .y-17 + .help-label { grid-row-start: 17; }
+.y-18 + .error-label, .y-18 + .help-label { grid-row-start: 18; }
+
+.error-label + .help-label {
+    /* Hide help while there are errors. Errors disappear when you start
+       typing anyway, so help is still available. */
+    display: none;
+}

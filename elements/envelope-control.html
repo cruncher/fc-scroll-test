@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="Documentation for sites. localhost" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <meta name="twitter:card" content="summary"></meta>
+    <meta name="twitter:site" content="@"></meta>
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="sites" />
+    <meta property="og:description" content="localhost" />
+    <meta property="og:image" content="" />
+    
+    <title>sites</title>
+    
+    <link rel="icon" type="image/png" href="../images/logo-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/logo-64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="../images/logo-128.png" sizes="128x128">
+    
+    <script title="load">
+    document.documentElement.className += ' js content-loading loading';
+    window.addEventListener('DOMContentLoaded', () => document.documentElement.classList.remove('content-loading'));
+    // Wait for other load handlers to run first - Bolt does a few things on
+    // load (eg. locateable scrolls) and we want them to run before the loading
+    // class is removed
+    window.addEventListener('load', () => window.requestAnimationFrame(() => document.documentElement.classList.remove('loading')));
+    </script>
+    
+
+    <script title="debug">
+        window.DEBUG = true;
+    </script>
+
+    <!--link rel="stylesheet" href="../style.min.css" /-->
+    <!--link rel="stylesheet" href="../style.css" /-->
+    <link rel="stylesheet" href="../../fn/css/prism-cruncher.css" />
+    <link rel="stylesheet" href="../../fn/css/tests.css" />
+    <link rel="stylesheet" href="../documentation/documentation.css" />
+    <link rel="stylesheet" href="../../fn/css/respond.css" />
+
+    <script title="config">
+        window.customElementStylesheetPath = './';
+    </script>
+
+    <template is="sparky-template" src="../templates.html#nested-style"></template>
+
+    <style>
+        :root {
+            --value-color: blue;
+        }    
+        * + input {
+            margin-top: 3.75rem;
+        }
+    </style>
+</head>
+
+<body class="grid 3x-grid @1-6x-grid @2-9x-grid" style="row-gap: 60px; grid-template-rows: min-content;">
+    <header class="x-1 3x @1-x-3 @1-4x @2-x-4" id="range-control">
+        <template is="sparky-template" fn="docs:envelope-control.js filter-type:tag each" src="../templates.html#title"></template>
+        <pre><code>bolt/templates/tag.html not found</code></pre>
+    </header>
+
+    <form class="x-1 3x @1-x-1 @1-2x @2-x-1 @2-3x x-stretch y-start">
+        <envelope-control min="0" max="1" value="0 0.1 step 0.5 1 linear 1 0.3 linear" name="ratio" ticks="-1 -0.8 -0.6 -0.4 -0.2 0 0.2 0.4 0.6 0.8 1" style="height: 16rem;">Envelope</envelope-control>
+        <input hidden class="button" type="submit" />
+    </form>
+
+    <div class="x-1 3x @1-x-3 @1-2x @2-x-4 x-stretch y-start">
+        <h3 class="doctext-03">Attributes</h3>        
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+        
+        <h3 class="doctext-03">Properties</h3>
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+        
+        <h3 class="doctext-03">Events</h3>
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+    </div>
+
+    <div class="x-1 3x @1-x-5 @1-2x @2-x-6 x-stretch y-start">
+        <h3 class="doctext-03">Parts</h3>
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+    
+        <h3 class="doctext-03">Variables</h3>
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+    </div>
+
+    <!-- Document interactivity -->
+    <script type="module" src="./envelope-control.js"></script>
+    <script type="module">
+        import '../module.js';
+        import '../documentation/documentation.js';
+    </script>
+</body>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="stephband" />
+    <meta name="description" content="Documentation for Bolt. A front-end toolkit of classes, evented behaviours and custom elements." />
+    <meta name="viewport" content="width=device-width" />
+    
+    <meta name="twitter:card" content="summary"></meta>
+    <meta name="twitter:site" content="@@stephband"></meta>
+    <meta property="og:url" content="http://stephen.band/bolt/" />
+    <meta property="og:title" content="Bolt" />
+    <meta property="og:description" content="A front-end toolkit of classes, evented behaviours and custom elements." />
+    <meta property="og:image" content="" />
+    
+    <title>Bolt</title>
+    
+    <link rel="icon" type="image/png" href="./images/logo-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="./images/logo-64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="./images/logo-128.png" sizes="128x128">
+    
+    <script title="load">
+    document.documentElement.className += ' js content-loading loading';
+    window.addEventListener('DOMContentLoaded', () => document.documentElement.classList.remove('content-loading'));
+    // Wait for other load handlers to run first - Bolt does a few things on
+    // load (eg. locateable scrolls) and we want them to run before the loading
+    // class is removed
+    window.addEventListener('load', () => window.requestAnimationFrame(() => document.documentElement.classList.remove('loading')));
+    </script>
+    
+
+    <script title="debug" remove>
+        window.DEBUG = true;
+    </script>
+
+    <!--link rel="stylesheet" href="../style.min.css" /-->
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./documentation/prism-cruncher.css" />
+    <link rel="stylesheet" href="../fn/css/tests.css" />
+    <link rel="stylesheet" href="./documentation/documentation.css" />
+    <link rel="stylesheet" href="../fn/css/respond.css" />
+
+    <style>
+        /* Render some elements visible, just in this styleguide */
+        button:not([type]),
+        [type="button"],
+        .button {
+            background-color: rgba(127, 127, 127, 0.15);
+        }
+        
+        button:not([type]) {
+            font-size: 0.875rem;
+        }
+    
+        /* Colour swatch thumbs */
+        .thumb[class$="bg"] {
+            box-shadow: inset 0 0 0 1px currentcolor;
+        }
+    </style>
+    
+    <script title="config">
+        window.customElementStylesheetPath = './elements/';
+    </script>
+
+    <style>
+        body {
+            overflow-x: hidden;
+            padding-top: 5.625rem;
+        }
+
+        body > nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: white;
+            border-bottom: 1px solid currentcolor;
+        }
+
+        body > section {
+            margin-top: 1.875rem;
+        }
+        
+        slide-show::part(link),
+        slide-show::part(prev),
+        slide-show::part(next) {
+            display: none;
+        }
+        
+        .time-link,
+        .date-link {
+            color: grey;
+            text-decoration: none;
+        }
+
+        .time-link.on,
+        .date-link.on {
+            color: currentcolor;
+        }
+        
+        .h-grid {
+            column-gap: 0.9375rem;
+            overflow: auto;
+            overflow-y: hidden;
+            grid-auto-flow: column;
+            grid-auto-columns: min-content;
+
+            padding: 0;
+            margin: 0;
+        
+            grid-auto-flow: column;
+            grid-auto-rows: min-content;
+            align-items: var(--slide-align);
+            justify-items: var(--slide-justify);
+        
+            scroll-snap-type: x mandatory;
+            scroll-snap-stop: always;
+            -webkit-scroll-behavior: smooth;
+                    scroll-behavior: smooth;
+        
+            overflow: scroll;
+            overflow-y: hidden;
+            overscroll-behavior-x: contain;
+            -ms-overflow-style: none; /* IE 11 */
+            scrollbar-width: none; /* Firefox 64 */
+        
+            will-change: -webkit-scroll-behavior;
+            will-change: scroll-behavior;
+        }
+        
+        .h-grid::-webkit-scrollbar {
+            display: none;
+        }
+
+        .h-grid > * {
+            margin-top: 0;
+        }
+    </style>
+</head>
+
+<body class="">
+    <nav>
+        <div class="h-grid grid">
+            <a class="text-03 date-link" href="/">Lun</a>
+            <a class="text-03 date-link" href="/">Mar</a>
+            <a class="text-03 date-link" href="/">Mer</a>
+            <a class="text-03 date-link" href="/">Jeu</a>
+            <a class="text-03 date-link" href="/">Ven</a>
+            <a class="text-03 date-link" href="/">Sam</a>
+            <a class="text-03 date-link" href="/">Dim</a>
+        </div>
+        <div class="h-grid grid" id="times">
+            <a class="text-03 time-link" href="#16:00">16:00</a>
+            <a class="text-03 time-link" href="#16:30">16:30</a>
+            <a class="text-03 time-link" href="#17:00">17:00</a>
+            <a class="text-03 time-link" href="#17:30">17:30</a>
+            <a class="text-03 time-link" href="#18:00">18:00</a>
+            <a class="text-03 time-link" href="#18:30">18:30</a>
+            <a class="text-03 time-link" href="#19:00">19:00</a>
+            <a class="text-03 time-link" href="#19:30">19:30</a>
+            <a class="text-03 time-link" href="#20:00">20:00</a>
+            <a class="text-03 time-link" href="#20:30">20:30</a>
+            <a class="text-03 time-link" href="#21:00">21:00</a>
+            <a class="text-03 time-link" href="#21:30">21:30</a>
+            <a class="text-03 time-link" href="#22:00">22:00</a>
+            <a class="text-03 time-link" href="#22:30">22:30</a>
+            <a class="text-03 time-link" href="#23:00">23:00</a>
+            <a class="text-03 time-link" href="#23:30">23:30</a>
+            <a class="text-03 time-link" href="#24:00">24:00</a>
+        </div>
+    </nav>
+
+    <section locateable id="16:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">16:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+
+    <section locateable id="16:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">16:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="17:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">17:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="17:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">17:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+
+    <section locateable id="18:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">18:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="18:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">18:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="19:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">19:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="19:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">19:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+
+    <section locateable id="20:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">20:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="20:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">20:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="21:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">21:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="21:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">21:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+
+    <section locateable id="22:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">22:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="22:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">22:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="23:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">23:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+    
+    <section locateable id="23:30">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">23:30</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+
+    <section locateable id="24:00">
+        <h2 class="text-02">Title</h2>
+        <p class="text-09">24:00</p>
+        <p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident. Duis aute irure indent tabs or spaces velit esse cilium buntum how crunchy duntum. Excepteur tranquilis syntax error memorandum qui officia nostrud operating system alertus. Hyper text linkus operari avec computatrum ad coniungere hominum. Standards code est pulchra on chromium et foxus sed souvent suckum in internet explorum.</p>
+    </section>
+
+    <!-- Document interactivity -->
+    <script type="module" src="../dom/polyfills/element.scrollto.js"></script>
+    <script type="module" src="./elements/slide-show.js"></script>
+    <script type="module">
+        import './module.js';
+        import { rect } from '../dom/module.js';
+
+        const times = document.getElementById('times');
+console.log('HELLO');
+        window.addEventListener('hashchange', function popstate(e) {
+            const on       = times.querySelector('.on');
+
+            //const timesBox = rect(times);
+            const onBox    = rect(on);
+console.log(on, onBox.left, times.scrollLeft);
+            times.scrollTo({
+                top: 0,
+                left: onBox.left + times.scrollLeft
+            });
+        });
+    </script>
+</body>

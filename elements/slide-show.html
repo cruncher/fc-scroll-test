@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="" />
+    <meta name="description" content="Documentation for sites. localhost" />
+    <meta name="viewport" content="width=device-width" />
+    
+    <meta name="twitter:card" content="summary"></meta>
+    <meta name="twitter:site" content="@"></meta>
+    <meta property="og:url" content="" />
+    <meta property="og:title" content="sites" />
+    <meta property="og:description" content="localhost" />
+    <meta property="og:image" content="" />
+    
+    <title>sites</title>
+    
+    <link rel="icon" type="image/png" href="../images/logo-32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../images/logo-64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="../images/logo-128.png" sizes="128x128">
+    
+    <script title="load">
+    document.documentElement.className += ' js content-loading loading';
+    window.addEventListener('DOMContentLoaded', () => document.documentElement.classList.remove('content-loading'));
+    // Wait for other load handlers to run first - Bolt does a few things on
+    // load (eg. locateable scrolls) and we want them to run before the loading
+    // class is removed
+    window.addEventListener('load', () => window.requestAnimationFrame(() => document.documentElement.classList.remove('loading')));
+    </script>
+    
+    
+    <script title="debug">
+        window.DEBUG = true;
+    </script>
+    
+    <!--link rel="stylesheet" href="../style.min.css" /-->
+    <!--link rel="stylesheet" href="../style.css" /-->
+    <link rel="stylesheet" href="../../fn/css/prism-cruncher.css" />
+    <link rel="stylesheet" href="../../fn/css/tests.css" />
+    <link rel="stylesheet" href="../documentation/documentation.css" />
+    <link rel="stylesheet" href="../../fn/css/respond.css" />
+
+    <script title="config">
+        window.customElementStylesheetPath = './';
+    </script>
+
+    <template is="sparky-template" src="../templates/templates.html#nested-style"></template>
+
+    <style>
+    slide-show {
+        background: #cccccc;
+        margin: 0 auto;
+        max-width: 30rem;
+    }
+
+    slide-show::part(prev),
+    slide-show::part(next) {
+        display: none;
+    }
+
+    slide-show > * + * {
+        display: none;
+    }
+
+    slide-show:defined > * + * {
+        display: block;
+    }
+    </style>
+</head>
+
+<body class="grid 3x-grid @1-6x-grid @2-9x-grid" style="row-gap: 60px; grid-template-rows: min-content;">
+    <header class="x-1 3x @1-x-3 @1-4x @2-x-4" id="range-control">
+        <pre><code>bolt/templates/tag.html not found</code></pre>
+    </header>
+
+    <div class="x-1 3x @1-x-1 @1-2x @2-x-1 @2-3x x-stretch y-start">
+        <slide-show loop autoplay>
+            <img src="../images/lyngen-4.png" width="1024" height="575" id="1" />
+            <img src="../images/lyngen-2.png" id="2" />
+            <img src="../images/lyngen-1.png" id="3" />
+            <img src="../images/lyngen-3.png" id="4" />
+        </slide-show>
+    </div>
+
+    <div class="x-1 3x @1-x-3 @1-2x @2-x-4 x-stretch y-start">
+        <h3 class="doctext-03">Attributes</h3>        
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+
+        <!--h3 class="doctext-03">Properties</h3>
+        <template is="sparky-template" fn="docs:slide-show.js filter-type:property each" src="../templates/templates.html#entry"></template-->
+
+        <!--h3 class="doctext-03">Events</h3>
+        <template is="sparky-template" fn="docs:slide-show.js filter-type:string each" src="../templates/templates.html#entry"></template-->
+    </div>
+
+    <div class="x-1 3x @1-x-5 @1-2x @2-x-6 x-stretch y-start">
+        <h3 class="doctext-03">Parts</h3>
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+
+        <h3 class="doctext-03">Variables</h3>
+        <pre><code>bolt/templates/entry.html not found</code></pre>
+    </div>
+
+    <!-- Document interactivity -->
+    <script type="module" src="../../dom/polyfills/element.scrollto.js"></script>
+    <script type="module" src="./slide-show.js"></script>
+    <script type="module">
+        import '../module.js';
+        import '../documentation/documentation.js';
+    </script>
+</body>

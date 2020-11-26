@@ -1,0 +1,62 @@
+
+/**
+Lists.
+**/
+
+/**
+.index
+
+Applied to <code class="html-tag">ul</code>, <code class="html-tag">ol</code>
+and <code class="html-tag">dl</code> elements to zero their default typographic
+style. Child <code class="html-tag">li</code>s are blocks, but they are set up
+to play nice as inline-blocks too.
+
+```html
+<ul class="index">
+  <li>One</li>
+  <li>Two</li>
+</ul>
+```
+*/
+
+.index {
+	/* Remove default styling from list items. */
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.index > li {
+	display: block;
+
+	/* Specifically remove default margin and padding from
+	   list items in case some typography rules have added
+	   these back in after the reset. */
+	margin: 0;
+	padding: 0;
+
+	/* Make index items act as position parents. */
+	position: relative;
+
+	/* Prepare for inline-block layout. */
+	vertical-align: top;
+	overflow: visible;
+}
+
+
+/**
+.inline-index
+
+```html
+<ul class="inline-index index">
+   <li><a class="button" href="#">One</a></li
+  ><li><a class="button" href="#">Two</a></li
+  ><li><a class="button" href="#">Three</a></li
+  ><li><a class="button" href="#">Four</a></li>
+</ul>
+```
+*/
+
+.inline-index > li {
+	display: inline-block;
+}

@@ -1,0 +1,185 @@
+
+/**
+Text.
+**/
+
+/*
+Text sizing. Viewport equivalent sizes:
+
+Viewport  1rem
+––––––––––––––
+1600      1vw
+800       2vw
+533.333   3vw
+400       4vw
+320       5vw
+–––––––––––––
+
+*/
+
+/**
+h1, .text-01
+
+```html
+<p class="text-01">Crunchum ipsum</p>
+```
+**/
+
+/**
+h2, .text-02
+
+```html
+<p class="text-02">Crunchum ipsum dolor sit coder void</p>
+```
+**/
+
+/**
+h3, .text-03
+
+```html
+<p class="text-03">Crunchum ipsum dolor sit coder void, constructor function, sed do while loop</p>
+```
+**/
+
+/**
+h4, .text-04
+
+```html
+<p class="text-04">Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident.</p>
+```
+**/
+
+/**
+h5, .text-05
+
+```html
+<p class="text-05">Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident.</p>
+```
+**/
+
+/**
+h6, .text-06
+
+```html
+<p class="text-06">Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident.</p>
+```
+**/
+
+/**
+code, .text-07
+
+```html
+<p class="text-07">Crunchum ipsum dolor sit coder void, constructor function, sed do while loop python orientation semi colon incident.</p>
+```
+**/
+
+/**
+body, .text-08
+
+```html
+<p class="text-08">Crunchum ipsum dolor sit coder void, constructor function, sed do while loop.</p>
+<p>Crunchum ipsum dolor sit coder void, constructor function, sed do while loop.</p>
+```
+**/
+
+/**
+.text-09
+
+```html
+<p class="text-09">Crunchum ipsum dolor sit coder void, constructor function, sed do while loop.</p>
+```
+**/
+
+.text-01, h1,
+.text-02, h2,
+.text-03, h3,
+.text-04, h4,
+.text-05, h5,
+.text-06, h6,
+.text-08, body,
+.text-09 {
+	font-family: Helvetica, Arial, sans-serif;
+	font-style: none;
+	text-transform: none;
+}
+
+.text-07, code     {
+	font-family: FiraMono, Courier, monospace;
+	font-style: normal;
+	text-transform: none;
+}
+
+.text-01, h1       { font-size: 2.5rem;    line-height: 2.625rem; font-weight: 700; }
+.text-02, h2       { font-size: 1.5rem;    line-height: 1.625rem; font-weight: 700; }
+.text-03, h3       { font-size: 1.25rem;   line-height: 1.5rem;   font-weight: 700; }
+.text-04, h4       { font-size: 1rem;      line-height: 1.5rem;   font-weight: 700; }
+.text-05, h5       { font-size: 1rem;      line-height: 1.375rem; font-weight: 700; }
+.text-06, h6       { font-size: 1.125rem;  line-height: 1.5rem;   font-weight: 300; }
+.text-07           { font-size: 0.9375rem; line-height: 1.5rem;   font-weight: 400; }
+.text-08, body     { font-size: 1rem;      line-height: 1.5rem;   font-weight: 400; }
+.text-09           { font-size: 0.9375rem; line-height: 1.5rem;   font-weight: 400; }
+
+
+/* Vertical typographic spacings pairs.
+   (We use 'body' in 'body tag + .class' to increase the
+   specificity of that selector by 1, making it override
+   '.class + tag' but not '.class + .class'). */
+
+*  + h1, * + .text-01                                            { margin-top: 2.5rem; }
+*  + h2, * + .text-02                                            { margin-top: 2.5rem; }
+p  + h2, .text-08 + .text-02, body p + .text-02, .text-08 + .text-02 { margin-top: 2.5rem; }
+*  + h3, * + .text-03                                            { margin-top: 1.25rem; }
+h2 + h3, .text-02 + h3,   body h2 + .text-03,   .text-02 + .text-03 { margin-top: 1.5625rem; }
+p  + h3, .text-08 + h3,  body p  + .text-03,  .text-08 + .text-03,
+dl + h3, dl + .text-03,
+ul + h3, ul + .text-03                                          { margin-top: 2.5rem; }
+*  + h4,  * + .text-04                                           { margin-top: 1.25rem; }
+h1 + h4,  .text-01 + h4,  body h1 + .text-04,  .text-01 + .text-04,
+h2 + h4,  .text-02 + h4,  body h2 + .text-04,  .text-02 + .text-04  { margin-top: 1.625rem; }
+h3 + h4,  .text-03 + h4,  body h3 + .text-04,  .text-03 + .text-04  { margin-top: 1.125rem; }
+p  + h4,  .text-08 + h4,  body p  + .text-04,  .text-08 + .text-04,
+dl + h4,  dl + .text-04,
+ul + h4,  ul + .text-04                                          { margin-top: 2.5rem; }
+*  + h5,  * + .text-05                                           { margin-top: 1.25rem; }
+h2 + h5,  .text-02 + h5,  body h2 + .text-05,  .text-02 + .text-05  { margin-top: 1.25rem; }
+h4 + h5,  .text-04 + h5,  body h4 + .text-05,  .text-04 + .text-05,
+p  + h5,  .text-08 + h5,  body p  + .text-05,  .text-08 + .text-05  { margin-top: 0.9375rem; }
+*  + p,   * + .text-08                                           { margin-top: 0.625rem; }
+h1 + p,   .text-01 + p,   body h1 + .text-08,  .text-01 + .text-08  { margin-top: 2.1875rem; }
+h3 + p,   .text-03 + p,   body h3 + .text-08,  .text-03 + .text-08  { margin-top: 0.625rem; }
+h5 + p,   .text-05 + p,   body h5 + .text-08,  .text-05 + .text-08,
+h5 + ul,  .text-05 + ul                                          { margin-top: 0; }
+p  + p,   .text-08 + p,   body p  + .text-08,  .text-08 + .text-08  { margin-top: 0.9375rem; }
+
+
+h2 + ul,   .text-02 + ul { margin-top: 1.875rem; }
+h3 + ul,   .text-03 + ul { margin-top: 1.25rem; }
+p + pre,  .text-08 + pre, pre + p,  pre + .text-08 { margin-top: 1.25rem; }
+
+p + form,     .text-08 + form     { margin-top: 0.5rem; }
+p + fieldset, .text-08 + fieldset { margin-top: 2rem; }
+
+p + .text-08,  .text-10 + .text-08 { margin-top: 0.375rem; }
+h3 + .text-11, .text-03 + .text-11 { margin-top: 0.125rem; }
+
+.light-text     { font-weight: 300 !important; }
+.normal-text    { font-weight: 400 !important; }
+.book-text      { font-weight: 450 !important; }
+.medium-text    { font-weight: 500 !important; }
+.semi-text      { font-weight: 600 !important; }
+.bold-text      { font-weight: 700 !important; }
+
+/* Selection */
+
+::selection {
+	background:rgba(27,117,186,0.8);
+	color:rgb(255,255,255);
+}
+::-moz-selection {
+	background:rgba(27,117,186,0.8);
+	color:rgb(255,255,255);
+}
+::-webkit-selection {
+	background:rgba(27,117,186,0.8);
+	color:rgb(255,255,255);
+}
