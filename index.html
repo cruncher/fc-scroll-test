@@ -13,7 +13,7 @@
     <meta property="og:description" content="A front-end toolkit of classes, evented behaviours and custom elements." />
     <meta property="og:image" content="" />
     
-    <title>Bolt</title>
+    <title>Fete scroll test</title>
     
     <link rel="icon" type="image/png" href="./images/logo-32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="./images/logo-64.png" sizes="64x64">
@@ -275,23 +275,25 @@
     </section>
 
     <!-- Document interactivity -->
-    <script type="module" src="../dom/polyfills/element.scrollto.js"></script>
-    <script type="module" src="./elements/slide-show.js"></script>
+    <!--script type="module" src="../dom/polyfills/element.scrollto.js"></script-->
+    <!--script type="module" src="./elements/slide-show.js"></script-->
     <script type="module">
         import './module.js';
         import { rect } from '../dom/module.js';
 
         const times = document.getElementById('times');
-
+        
         window.addEventListener('hashchange', function popstate(e) {
             const on       = times.querySelector('.on');
             const onBox    = rect(on);
 
-            times.scrollTo({
-                top: 0,
-                // -24 to compensate for padding-left
-                left: onBox.left + times.scrollLeft - 24
-            });
+            setTimeout(function() {
+                times.scrollTo({
+                    top: 0,
+                    // -24 to compensate for padding-left
+                    left: onBox.left + times.scrollLeft - 24
+                }); 
+            }, 600);
         });
     </script>
 </body>
