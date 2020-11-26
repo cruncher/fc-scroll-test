@@ -160,7 +160,7 @@ const store = weakCache(function(node) {
         node: node
     };
 });
-
+/*
 function updateElement(time, data) {
     data.frame = undefined;
 
@@ -241,7 +241,7 @@ function scrollElement(e) {
     // Cue an update
     data.frame = requestAnimationFrame((time) => updateElement(time, data));
 }
-
+*/
 function restoreScroll(node) {
     var scrollParent = node;
 
